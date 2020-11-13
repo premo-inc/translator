@@ -1,0 +1,173 @@
+
+fizz-buzz.riscv:     file format elf64-littleriscv
+
+
+Disassembly of section .plt:
+
+00000000000103a0 <_PROCEDURE_LINKAGE_TABLE_>:
+   103a0:	97 23 00 00 33 03 c3 41 03 be 03 c6 13 03 43 fd     .#..3..A......C.
+   103b0:	93 82 03 c6 13 53 13 00 83 b2 82 00 67 00 0e 00     .....S......g...
+
+00000000000103c0 <__libc_start_main@plt>:
+   103c0:	00002e17          	auipc	t3,0x2
+   103c4:	c50e3e03          	ld	t3,-944(t3) # 12010 <__libc_start_main@GLIBC_2.27>
+   103c8:	000e0367          	jalr	t1,t3
+   103cc:	00000013          	nop
+
+00000000000103d0 <putc@plt>:
+   103d0:	00002e17          	auipc	t3,0x2
+   103d4:	c48e3e03          	ld	t3,-952(t3) # 12018 <putc@GLIBC_2.27>
+   103d8:	000e0367          	jalr	t1,t3
+   103dc:	00000013          	nop
+
+Disassembly of section .text:
+
+00000000000103e0 <main>:
+   103e0:	7139                	addi	sp,sp,-64
+   103e2:	f822                	sd	s0,48(sp)
+   103e4:	f426                	sd	s1,40(sp)
+   103e6:	f04a                	sd	s2,32(sp)
+   103e8:	ec4e                	sd	s3,24(sp)
+   103ea:	e852                	sd	s4,16(sp)
+   103ec:	e456                	sd	s5,8(sp)
+   103ee:	fc06                	sd	ra,56(sp)
+   103f0:	4405                	li	s0,1
+   103f2:	64c9                	lui	s1,0x12
+   103f4:	49bd                	li	s3,15
+   103f6:	4a0d                	li	s4,3
+   103f8:	4a95                	li	s5,5
+   103fa:	06400913          	li	s2,100
+   103fe:	033467bb          	remw	a5,s0,s3
+   10402:	0384b583          	ld	a1,56(s1) # 12038 <stdout@@GLIBC_2.27>
+   10406:	02100513          	li	a0,33
+   1040a:	cf89                	beqz	a5,10424 <main+0x44>
+   1040c:	034467bb          	remw	a5,s0,s4
+   10410:	06600513          	li	a0,102
+   10414:	cb81                	beqz	a5,10424 <main+0x44>
+   10416:	0354673b          	remw	a4,s0,s5
+   1041a:	02e00513          	li	a0,46
+   1041e:	e319                	bnez	a4,10424 <main+0x44>
+   10420:	07a00513          	li	a0,122
+   10424:	2405                	addiw	s0,s0,1
+   10426:	fabff0ef          	jal	ra,103d0 <putc@plt>
+   1042a:	fd241ae3          	bne	s0,s2,103fe <main+0x1e>
+   1042e:	0384b583          	ld	a1,56(s1)
+   10432:	4529                	li	a0,10
+   10434:	f9dff0ef          	jal	ra,103d0 <putc@plt>
+   10438:	70e2                	ld	ra,56(sp)
+   1043a:	7442                	ld	s0,48(sp)
+   1043c:	74a2                	ld	s1,40(sp)
+   1043e:	7902                	ld	s2,32(sp)
+   10440:	69e2                	ld	s3,24(sp)
+   10442:	6a42                	ld	s4,16(sp)
+   10444:	6aa2                	ld	s5,8(sp)
+   10446:	4501                	li	a0,0
+   10448:	6121                	addi	sp,sp,64
+   1044a:	8082                	ret
+
+000000000001044c <_start>:
+   1044c:	02c000ef          	jal	ra,10478 <_start+0x2c>
+   10450:	87aa                	mv	a5,a0
+   10452:	00000517          	auipc	a0,0x0
+   10456:	f8e50513          	addi	a0,a0,-114 # 103e0 <main>
+   1045a:	6582                	ld	a1,0(sp)
+   1045c:	0030                	addi	a2,sp,8
+   1045e:	ff017113          	andi	sp,sp,-16
+   10462:	00000697          	auipc	a3,0x0
+   10466:	09468693          	addi	a3,a3,148 # 104f6 <__libc_csu_init>
+   1046a:	00000717          	auipc	a4,0x0
+   1046e:	0e470713          	addi	a4,a4,228 # 1054e <__libc_csu_fini>
+   10472:	880a                	mv	a6,sp
+   10474:	f4dff06f          	j	103c0 <__libc_start_main@plt>
+   10478:	00002197          	auipc	gp,0x2
+   1047c:	3b018193          	addi	gp,gp,944 # 12828 <__global_pointer$>
+   10480:	8082                	ret
+
+0000000000010482 <deregister_tm_clones>:
+   10482:	6549                	lui	a0,0x12
+   10484:	6749                	lui	a4,0x12
+   10486:	00050793          	mv	a5,a0
+   1048a:	00070713          	mv	a4,a4
+   1048e:	00f70b63          	beq	a4,a5,104a4 <deregister_tm_clones+0x22>
+   10492:	00000337          	lui	t1,0x0
+   10496:	00030313          	mv	t1,t1
+   1049a:	00030563          	beqz	t1,104a4 <deregister_tm_clones+0x22>
+   1049e:	00050513          	mv	a0,a0
+   104a2:	8302                	jr	t1
+   104a4:	8082                	ret
+
+00000000000104a6 <register_tm_clones>:
+   104a6:	6549                	lui	a0,0x12
+   104a8:	00050793          	mv	a5,a0
+   104ac:	6749                	lui	a4,0x12
+   104ae:	00070593          	mv	a1,a4
+   104b2:	8d9d                	sub	a1,a1,a5
+   104b4:	858d                	srai	a1,a1,0x3
+   104b6:	03f5d793          	srli	a5,a1,0x3f
+   104ba:	95be                	add	a1,a1,a5
+   104bc:	8585                	srai	a1,a1,0x1
+   104be:	c991                	beqz	a1,104d2 <register_tm_clones+0x2c>
+   104c0:	00000337          	lui	t1,0x0
+   104c4:	00030313          	mv	t1,t1
+   104c8:	00030563          	beqz	t1,104d2 <register_tm_clones+0x2c>
+   104cc:	00050513          	mv	a0,a0
+   104d0:	8302                	jr	t1
+   104d2:	8082                	ret
+
+00000000000104d4 <__do_global_dtors_aux>:
+   104d4:	1141                	addi	sp,sp,-16
+   104d6:	e022                	sd	s0,0(sp)
+   104d8:	8181c783          	lbu	a5,-2024(gp) # 12040 <completed.5978>
+   104dc:	e406                	sd	ra,8(sp)
+   104de:	e791                	bnez	a5,104ea <__do_global_dtors_aux+0x16>
+   104e0:	fa3ff0ef          	jal	ra,10482 <deregister_tm_clones>
+   104e4:	4785                	li	a5,1
+   104e6:	80f18c23          	sb	a5,-2024(gp) # 12040 <completed.5978>
+   104ea:	60a2                	ld	ra,8(sp)
+   104ec:	6402                	ld	s0,0(sp)
+   104ee:	0141                	addi	sp,sp,16
+   104f0:	8082                	ret
+
+00000000000104f2 <frame_dummy>:
+   104f2:	fb5ff06f          	j	104a6 <register_tm_clones>
+
+00000000000104f6 <__libc_csu_init>:
+   104f6:	7139                	addi	sp,sp,-64
+   104f8:	f822                	sd	s0,48(sp)
+   104fa:	f04a                	sd	s2,32(sp)
+   104fc:	00002417          	auipc	s0,0x2
+   10500:	92440413          	addi	s0,s0,-1756 # 11e20 <__frame_dummy_init_array_entry>
+   10504:	00002917          	auipc	s2,0x2
+   10508:	92490913          	addi	s2,s2,-1756 # 11e28 <__init_array_end>
+   1050c:	40890933          	sub	s2,s2,s0
+   10510:	fc06                	sd	ra,56(sp)
+   10512:	f426                	sd	s1,40(sp)
+   10514:	ec4e                	sd	s3,24(sp)
+   10516:	e852                	sd	s4,16(sp)
+   10518:	e456                	sd	s5,8(sp)
+   1051a:	40395913          	srai	s2,s2,0x3
+   1051e:	00090f63          	beqz	s2,1053c <__libc_csu_init+0x46>
+   10522:	8ab2                	mv	s5,a2
+   10524:	8a2e                	mv	s4,a1
+   10526:	89aa                	mv	s3,a0
+   10528:	4481                	li	s1,0
+   1052a:	601c                	ld	a5,0(s0)
+   1052c:	8656                	mv	a2,s5
+   1052e:	85d2                	mv	a1,s4
+   10530:	854e                	mv	a0,s3
+   10532:	0485                	addi	s1,s1,1
+   10534:	9782                	jalr	a5
+   10536:	0421                	addi	s0,s0,8
+   10538:	fe9919e3          	bne	s2,s1,1052a <__libc_csu_init+0x34>
+   1053c:	70e2                	ld	ra,56(sp)
+   1053e:	7442                	ld	s0,48(sp)
+   10540:	74a2                	ld	s1,40(sp)
+   10542:	7902                	ld	s2,32(sp)
+   10544:	69e2                	ld	s3,24(sp)
+   10546:	6a42                	ld	s4,16(sp)
+   10548:	6aa2                	ld	s5,8(sp)
+   1054a:	6121                	addi	sp,sp,64
+   1054c:	8082                	ret
+
+000000000001054e <__libc_csu_fini>:
+   1054e:	8082                	ret
