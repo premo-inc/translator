@@ -1,24 +1,19 @@
-# tinyemu
+# Vagrant
 
-## Vagrant
+Providing temu environment to running RISC-V emulator on Fedora.
 
 ```shell
 cd vagrant
 vagrant up
 ```
 
-## Update submodule
+## Build temu
 
 ```shell
-git submodule update --init --recursive --depth 1
-```
+cd /temu/tinyemu-2019-12-21
 
-## Build
-
-```shell
 sudo dnf install openssl-devel libcurl-devel SDL-devel
 sudo dnf groupinstall -y 'Development tools'
-cd tinyemu-2019-12-21
 make
 sudo make install
 hash -r
@@ -27,7 +22,7 @@ hash -r
 ## Run
 
 ```shell
-make
+make -C /temu
 ```
 
 ```text
