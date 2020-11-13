@@ -1,0 +1,6 @@
+[submodule "src/vendor/onikiri2"]
+	path = src/vendor/onikiri2
+	url = https://github.com/onikiri/onikiri2
+[submodule "src/vendor/riscv-disassembler"]
+	path = src/vendor/riscv-disassembler
+	url = https://github.com/michaeljclark/riscv-disassembler.git
