@@ -1,5 +1,7 @@
 # Vagrant
 
+Providing temu environment to running RISC-V emulator on Fedora.
+
 ```shell
 cd vagrant
 vagrant up
