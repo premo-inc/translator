@@ -13,6 +13,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.network :private_network, ip: '172.28.128.20'
 
+  config.vm.synced_folder 'temu/', '/temu'
+
   config.vm.provider 'virtualbox' do |vb|
     vb.name = 'vagrant-premo-tinyemu'
     vb.gui = false

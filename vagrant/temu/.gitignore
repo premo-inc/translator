@@ -1,0 +1,6 @@
+*.d
+*.o
+
+tinyemu-*/build_filelist
+tinyemu-*/splitimg
+tinyemu-*/temu
