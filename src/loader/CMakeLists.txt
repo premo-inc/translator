@@ -9,6 +9,7 @@ add_compile_options(-O2)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/../vendor/onikiri2/lib)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/../vendor/onikiri2/src)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/../vendor/onikiri2/src/pch)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/../vendor/riscv-disassembler/src)
 
 project (loader)
 
@@ -19,6 +20,7 @@ add_executable(
   ../vendor/onikiri2/src/Emu/Utility/System/Loader/ELF64.cpp
   ../vendor/onikiri2/src/Emu/Utility/System/Loader/Elf32Reader.cpp
   ../vendor/onikiri2/src/Emu/Utility/System/Loader/Elf64Reader.cpp
+  ../vendor/riscv-disassembler/src/riscv-disas.c
 )
 
 target_link_libraries(
