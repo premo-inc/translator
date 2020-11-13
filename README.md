@@ -220,3 +220,9 @@ shdr 11
 0x104ca: 8082              ret           
 0x104cc: 8082              ret           
 ```
+
+## RISC-V Emulator
+
+`vagrant/temu` provides temu environment to running RISC-V emulator on Fedora.
+
+Follow the instruction of `vagrant/README.md` to launch Fedora on vagrant, and run Fedora 29 on RISC-V emulator.
