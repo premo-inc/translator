@@ -3,31 +3,23 @@
 /mnt/hello.riscv
 architecture: riscv:rv64, flags 0x00000112:
 EXEC_P, HAS_SYMS, D_PAGED
-start address 0x00000000000103a0
+start address 0x00000000000103b8
 
 Program Header:
-p_type 6
     PHDR off    0x0000000000000040 vaddr 0x0000000000010040 paddr 0x0000000000010040 align 2**3
          filesz 0x00000000000001c0 memsz 0x00000000000001c0 flags r--
-p_type 3
   INTERP off    0x0000000000000200 vaddr 0x0000000000010200 paddr 0x0000000000010200 align 2**0
          filesz 0x0000000000000021 memsz 0x0000000000000021 flags r--
-p_type 1
     LOAD off    0x0000000000000000 vaddr 0x0000000000010000 paddr 0x0000000000010000 align 2**12
-         filesz 0x0000000000000578 memsz 0x0000000000000578 flags r-x
-p_type 1
+         filesz 0x0000000000000570 memsz 0x0000000000000570 flags r-x
     LOAD off    0x0000000000000e18 vaddr 0x0000000000011e18 paddr 0x0000000000011e18 align 2**12
          filesz 0x000000000000021c memsz 0x0000000000000220 flags rw-
-p_type 2
  DYNAMIC off    0x0000000000000e30 vaddr 0x0000000000011e30 paddr 0x0000000000011e30 align 2**3
          filesz 0x00000000000001d0 memsz 0x00000000000001d0 flags rw-
-p_type 4
     NOTE off    0x0000000000000224 vaddr 0x0000000000010224 paddr 0x0000000000010224 align 2**2
          filesz 0x0000000000000044 memsz 0x0000000000000044 flags r--
-p_type 50
-EH_FRAME off    0x00000000000004dc vaddr 0x00000000000104dc paddr 0x00000000000104dc align 2**2
+EH_FRAME off    0x00000000000004d0 vaddr 0x00000000000104d0 paddr 0x00000000000104d0 align 2**2
          filesz 0x0000000000000024 memsz 0x0000000000000024 flags r--
-p_type 52
    RELRO off    0x0000000000000e18 vaddr 0x0000000000011e18 paddr 0x0000000000011e18 align 2**0
          filesz 0x00000000000001e8 memsz 0x00000000000001e8 flags r--
 
@@ -82,13 +74,13 @@ Idx Name          Size      VMA               LMA               File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   9 .plt          00000040  0000000000010360  0000000000010360  00000360  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 10 .text         0000012e  00000000000103a0  00000000000103a0  000003a0  2**2
+ 10 .text         0000011e  00000000000103a0  00000000000103a0  000003a0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 11 .rodata       0000000c  00000000000104d0  00000000000104d0  000004d0  2**3
+ 11 .rodata       00000010  00000000000104c0  00000000000104c0  000004c0  2**3
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
- 12 .eh_frame_hdr 00000024  00000000000104dc  00000000000104dc  000004dc  2**2
+ 12 .eh_frame_hdr 00000024  00000000000104d0  00000000000104d0  000004d0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
- 13 .eh_frame     00000078  0000000000010500  0000000000010500  00000500  2**3
+ 13 .eh_frame     00000078  00000000000104f8  00000000000104f8  000004f8  2**3
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
  14 .preinit_array 00000008  0000000000011e18  0000000000011e18  00000e18  2**0
                   CONTENTS, ALLOC, LOAD, DATA
@@ -120,9 +112,9 @@ SYMBOL TABLE:
 0000000000010330 l    d  .rela.plt	0000000000000000              .rela.plt
 0000000000010360 l    d  .plt	0000000000000000              .plt
 00000000000103a0 l    d  .text	0000000000000000              .text
-00000000000104d0 l    d  .rodata	0000000000000000              .rodata
-00000000000104dc l    d  .eh_frame_hdr	0000000000000000              .eh_frame_hdr
-0000000000010500 l    d  .eh_frame	0000000000000000              .eh_frame
+00000000000104c0 l    d  .rodata	0000000000000000              .rodata
+00000000000104d0 l    d  .eh_frame_hdr	0000000000000000              .eh_frame_hdr
+00000000000104f8 l    d  .eh_frame	0000000000000000              .eh_frame
 0000000000011e18 l    d  .preinit_array	0000000000000000              .preinit_array
 0000000000011e20 l    d  .init_array	0000000000000000              .init_array
 0000000000011e28 l    d  .fini_array	0000000000000000              .fini_array
@@ -133,43 +125,45 @@ SYMBOL TABLE:
 0000000000000000 l    d  .comment	0000000000000000              .comment
 0000000000012038 l    d  .gnu.build.attributes	0000000000000000              .gnu.build.attributes
 0000000000000000 l    df *ABS*	0000000000000000              /lib64/lp64d/../lib64/lp64d/crt1.o
-00000000000103d6 l       .text	0000000000000000              .hidden .annobin_init.c
-00000000000103d6 l       .text	0000000000000000              .hidden .annobin_init.c_end
-00000000000103d6 l       .text	0000000000000000              .hidden .annobin_static_reloc.c
-00000000000103d6 l       .text	0000000000000000              .hidden .annobin_static_reloc.c_end
+00000000000103ee l       .text	0000000000000000              .hidden .annobin_init.c
+00000000000103ee l       .text	0000000000000000              .hidden .annobin_init.c_end
+00000000000103ee l       .text	0000000000000000              .hidden .annobin_static_reloc.c
+00000000000103ee l       .text	0000000000000000              .hidden .annobin_static_reloc.c_end
+0000000000000000 l    df *ABS*	0000000000000000              hello.c
 0000000000000000 l    df *ABS*	0000000000000000              crtstuff.c
-00000000000103d6 l     F .text	0000000000000000              deregister_tm_clones
-00000000000103fa l     F .text	0000000000000000              register_tm_clones
-0000000000010428 l     F .text	0000000000000000              __do_global_dtors_aux
+00000000000103ee l     F .text	0000000000000000              deregister_tm_clones
+0000000000010412 l     F .text	0000000000000000              register_tm_clones
+0000000000010440 l     F .text	0000000000000000              __do_global_dtors_aux
 0000000000012034 l     O .bss	0000000000000001              completed.5978
 0000000000011e28 l     O .fini_array	0000000000000000              __do_global_dtors_aux_fini_array_entry
-0000000000010448 l     F .text	0000000000000000              frame_dummy
+0000000000010460 l     F .text	0000000000000000              frame_dummy
 0000000000011e20 l     O .init_array	0000000000000000              __frame_dummy_init_array_entry
-0000000000000000 l    df *ABS*	0000000000000000              hello.c
 0000000000000000 l    df *ABS*	0000000000000000              elf-init.oS
-0000000000010474 l       .text	0000000000000000              .hidden .annobin_elf_init.c
-00000000000104ce l       .text	0000000000000000              .hidden .annobin_elf_init.c_end
+0000000000010464 l       .text	0000000000000000              .hidden .annobin_elf_init.c
+00000000000104be l       .text	0000000000000000              .hidden .annobin_elf_init.c_end
 0000000000000000 l    df *ABS*	0000000000000000              crtstuff.c
-0000000000010574 l     O .eh_frame	0000000000000000              __FRAME_END__
+000000000001056c l     O .eh_frame	0000000000000000              __FRAME_END__
 0000000000000000 l    df *ABS*	0000000000000000              
 0000000000010360 l     O .plt	0000000000000000              _PROCEDURE_LINKAGE_TABLE_
 0000000000011e28 l       .init_array	0000000000000000              __init_array_end
 0000000000011e30 l     O .dynamic	0000000000000000              _DYNAMIC
 0000000000011e20 l       .init_array	0000000000000000              __init_array_start
-00000000000104dc l       .eh_frame_hdr	0000000000000000              __GNU_EH_FRAME_HDR
+00000000000104d0 l       .eh_frame_hdr	0000000000000000              __GNU_EH_FRAME_HDR
 0000000000012020 l     O .got	0000000000000000              _GLOBAL_OFFSET_TABLE_
-00000000000104cc g     F .text	0000000000000002              __libc_csu_fini
+00000000000104bc g     F .text	0000000000000002              __libc_csu_fini
 0000000000012000  w      .got	0000000000000000              data_start
 0000000000012034 g       .sdata	0000000000000000              _edata
 0000000000010380       F *UND*	0000000000000000              __libc_start_main@@GLIBC_2.27
 0000000000012000 g       .got	0000000000000000              __data_start
 0000000000012028 g     O .sdata	0000000000000000              .hidden __dso_handle
 0000000000012030 g     O .sdata	0000000000000004              _IO_stdin_used
-0000000000010474 g     F .text	0000000000000058              __libc_csu_init
+0000000000010464 g     F .text	0000000000000058              __libc_csu_init
 0000000000012038 g       .bss	0000000000000000              _end
-00000000000103a0 g     F .text	000000000000002c              _start
+00000000000103b8 g     F .text	000000000000002c              _start
 0000000000012828 g       .sdata	0000000000000000              __global_pointer$
 0000000000010390       F *UND*	0000000000000000              puts@@GLIBC_2.27
 0000000000012034 g       .bss	0000000000000000              __bss_start
-000000000001044c g     F .text	0000000000000028              main
+00000000000103a0 g     F .text	0000000000000018              main
 0000000000012000 g     O .got	0000000000000000              .hidden __TMC_END__
+
+
