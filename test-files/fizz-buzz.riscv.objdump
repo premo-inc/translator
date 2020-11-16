@@ -166,5 +166,3 @@ SYMBOL TABLE:
 00000000000103e0 g     F .text	000000000000006c              main
 0000000000012000 g     O .got	0000000000000000              .hidden __TMC_END__
 0000000000012038 g     O .bss	0000000000000008              stdout@@GLIBC_2.27
-
-
